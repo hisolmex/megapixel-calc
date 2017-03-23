@@ -11,14 +11,14 @@
   <link href="style.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
   <script>
   <!-- Miejsce na javascript-->
   </script>
-  <script>
-function myFunction() {
-    alert("it doesn't work!");
-}
-</script>
+
 
 
   <!--[if lt IE 9]>
@@ -30,29 +30,38 @@ function myFunction() {
 	<header class="header">
 	
 	</header>
-	
 	<section class ="first">
-		<div class="row">
-		
-			<div class="form">
-				<h1>Megapixel calculator</h1>
-				
-				<div class="form-group">
-					<label for="txt_width" class="">Width</label>
-					<div>
-						<input name="width" type="text" class="form-control" id="txt_width" placeholder="1920" value="1920">
+		<div class="container">
+			<div class="row">
+				<div class="form">
+					<h1>Megapixel calculator</h1>
+					<div class="form-group">
+						<label for="txt-width" class="">Width</label>
+						<div>
+							<input name="width" type="text" class="form-control" id="txt-width" placeholder="1920" value="1920">
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<label for="txt_height" class="">Height</label>
-					<div>
-						<input name="height" type="text" class="form-control" id="txt_height" placeholder="1080" value="1080">
+					<div class="form-group">
+						<label for="txt-height" class="">Height</label>
+						<div>
+							<input name="height" type="text" class="form-control" id="txt-height" placeholder="1080" value="1080">
+						</div>
 					</div>
+					<button class="btn" onclick="myFunction()">Calculate megapixels!</button>
+
 				</div>
-				<button class="btn" onclick="myFunction()">Calculate megapixels!</button>
-				
 			</div>
-		
+		</div>
+	</section>
+	<section class="secend">
+		<div class="container">
+			<div class="row">
+				<h1>Calculation</h1>
+				<ul>
+					<li>Size = <span id="width"></span> x <span id="height"></span> = <span id="result"></span> pixels</li>
+					<li>Megapixels = <span id="mpix"></span></li>
+				<ul>
+			</div>
 		</div>
 	</section>
 	<footer>
@@ -75,5 +84,46 @@ function myFunction() {
 	</script>
 	<script src="script.js">
   </script>
+    <script>
+  // event , po wpisaniu gdy wartosc juz zostala wpisana do inputa
+  $('#txt-width').keyup(function() {
+	 var lastChar =  $(this).val().slice(-1);
+	 if (!(lastChar >= 0  && lastChar <= 9 )) {
+		// wpisujemy do inputa wartosc bez ostatniego znaku
+		$(this).val($(this).val().slice(0,-1));
+		
+	}
+	// do testów
+	//console.log($(this).val());
+  
+  });
+  $('#txt-height').keyup(function() {
+	 var lastChar =  $(this).val().slice(-1);
+	 if (!(lastChar >= 0  && lastChar <= 9 )) {
+		// wpisujemy do inputa wartosc bez ostatniego znaku
+		$(this).val($(this).val().slice(0,-1));
+		
+	}
+	// do testów
+	//console.log($(this).val());
+  
+  });
+  
+  
+function myFunction() {
+	var width = $('#txt-width').val();
+	var height = $('#txt-height').val();
+	var mpix = (width * height) /1000000;
+	$('#result').text(width * height);
+	$('#width').text(width);
+	$('#height').text(height);
+	$('#mpix').text(mpix.toFixed(2));
+    <!-- alert("it doesn't work!"); -->
+	$('.secend').fadeOut(800, function(){
+		$('.secend').fadeIn();
+	});
+	
+}
+</script>
 </body>
 </html>

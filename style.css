@@ -178,9 +178,11 @@ ul {
     display: inline;
     height: 100px;
 }
-.fa.my-icon: hover {
-	font-size: 25px;
+.secend {
+	color : white;
+	display: none;
 }
+
 footer {
 		position:absolute;
 		bottom:0;

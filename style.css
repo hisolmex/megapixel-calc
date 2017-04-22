@@ -8,7 +8,7 @@
 }
 body {
 	margin: 0;
-	  	background-image: url(https://zapodaj.net/images/bed29312d036a.jpg);
+	background-image: url(b.jpg);
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -78,15 +78,12 @@ body {
  
 .form {
 	background-color:rgba(255,0,0,0.3);
-
-    
 }
 .first h1 {
 	text-transform: uppercase;
 }
 .first row {
 	display: inline-block;
-	
 }
 .first .col-4 {
 	text-align: center;
@@ -105,14 +102,9 @@ hr {
     border-bottom: 1px dashed #ccc;
     background: #999;
 }
-
 .border {
 	border: 2px solid red;
-
-	
 }
-
-
 .first {
 	text-align: center;
 	
